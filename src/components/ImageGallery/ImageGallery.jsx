@@ -1,15 +1,15 @@
-import { v4 as uuidv4 } from 'uuid';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
 import { CurrentImageGallery } from './ImageGallery.styled';
 
-export default function ImageGallery({ images, handleImageClick }) {
+export default function ImageGallery({ images, onSelect }) {
     return (
         <CurrentImageGallery>
-            {images.map(({ src, alt }) => {
-                const itemId = uuidv4();
-                <ImageGalleryItem key={itemId} src={src} alt={alt} onClick={handleImageClick}/>
+            {images && images.map(image => {
+                const { id, webformatURL, tags} = image;
+                return < ImageGalleryItem key={id} src={webformatURL} alt={tags} onClick={() => onSelect(image)} />
             })}
+            
         </CurrentImageGallery>
     );
 };

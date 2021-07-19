@@ -1,9 +1,9 @@
 import { CurrentImageGalleryItem , ImageGalleryItemImage } from './ImageGalleryItem.styled';
 
-export default function ImageGalleryItem({ src, alt, onClick }) {
+export default function ImageGalleryItem({ id, src, alt, onClick }) {
     return (
         <CurrentImageGalleryItem >
-            <ImageGalleryItemImage src={src} alt={alt} onClick={onClick}/>
+            <ImageGalleryItemImage key={id} src={src} alt={alt} onClick={onClick}/>
         </CurrentImageGalleryItem>
     )
 };

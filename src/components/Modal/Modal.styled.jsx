@@ -27,4 +27,9 @@ position: absolute;
 top: 8px;
 right: 8px;
 padding:1px;
-cursor: pointer;`;
+border: none;
+cursor: pointer;
+&:hover,
+&:focus{
+  background-color: #ADD8E6;
+}`;

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { CustomSearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput  } from './SearchForm.styled';
+import PropTypes from 'prop-types';
 
 export default class SearchForm extends Component {
     state = {
         value: '',
+    }
+
+    static propTypes = {
+        value: PropTypes.string,
+        onSubmit: PropTypes.func.isRequired,
     }
 
     handleInputValue = e => {
@@ -14,7 +21,8 @@ export default class SearchForm extends Component {
         e.preventDefault();
         
         if (this.state.value.trim() === '') {
-            alert ('Введите название картинки.'); //toast.error
+            // alert('Введите название картинки.'); 
+            toast.error('Input picture`s name.')
             return;
         }
         this.props.onSubmit(this.state.value);
@@ -38,28 +46,9 @@ export default class SearchForm extends Component {
                     autocomplete="off"
                     onChange={this.handleInputValue}
                 />
+                <Toaster/>
             </CustomSearchForm>
         )
     }
     
 };
-
-// export function SearchForm({onSearch}) {
-//     return (
-//         <CustomSearchForm onSubmit={e => {
-//             e.preventDefault();
-//             onSearch(e.target.elements.searchImage.value)
-//             }}>
-//                 <SearchFormButton type="submit">
-//                     <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-//                 </SearchFormButton>
-//                 <SearchFormInput
-//                 type="text"
-//                 name="searchImage"
-//                 placeholder = "Search images and photos"
-//                 autocomplete="off"
-                    
-//                 />
-//             </CustomSearchForm>
-//         )
-// }

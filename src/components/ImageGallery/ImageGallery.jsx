@@ -1,6 +1,6 @@
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
-
 import { CurrentImageGallery } from './ImageGallery.styled';
+import PropTypes from 'prop-types';
 
 export default function ImageGallery({ images, onSelect }) {
     return (
@@ -13,3 +13,15 @@ export default function ImageGallery({ images, onSelect }) {
         </CurrentImageGallery>
     );
 };
+
+
+ImageGallery.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        webformatURL: PropTypes.string.isRequired,
+        tags: PropTypes.string.isRequired,
+    })),
+    onSelect: PropTypes.func.isRequired,
+    
+}
+    

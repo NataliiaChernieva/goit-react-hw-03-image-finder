@@ -1,4 +1,5 @@
-import { CurrentImageGalleryItem , ImageGalleryItemImage } from './ImageGalleryItem.styled';
+import { CurrentImageGalleryItem, ImageGalleryItemImage } from './ImageGalleryItem.styled';
+
 
 export default function ImageGalleryItem({ id, src, alt, onClick }) {
     return (
@@ -7,3 +8,5 @@ export default function ImageGalleryItem({ id, src, alt, onClick }) {
         </CurrentImageGalleryItem>
     )
 };
+
+
